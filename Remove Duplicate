@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& v) {
+        int l = v.size();
+        for(int i = 0;i < 1;i++){
+            for(int j = i+1;j < l;j++){
+                if(v[i] == v[j]){
+                  v[j] = 1000;  
+                }
+                else
+                i = j;
+            }
+        }
+        sort(v.begin(),v.end());
+        int k=0;
+        for(int  i = 0;i < l;i++){
+            if(v[i] != 1000)
+            k += 1;
+        }
+        return k;
+    }
+};
